@@ -1,0 +1,348 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "prestatario",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "monto",
+						"type": "uint256"
+					}
+				],
+				"name": "GarantiaLiquidada",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "prestatario",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "monto",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tiempoLimite",
+						"type": "uint256"
+					}
+				],
+				"name": "PrestamoAprobado",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "prestatario",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "monto",
+						"type": "uint256"
+					}
+				],
+				"name": "PrestamoReembolsado",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "prestatario",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "monto",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "plazo",
+						"type": "uint256"
+					}
+				],
+				"name": "SolicitudPrestamo",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "nuevoCliente",
+						"type": "address"
+					}
+				],
+				"name": "altaCliente",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "nuevoPrestamista",
+						"type": "address"
+					}
+				],
+				"name": "altaPrestamista",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "prestatario_",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id_",
+						"type": "uint256"
+					}
+				],
+				"name": "aprobarPrestamo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "depositarGarantia",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "prestatario_",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id_",
+						"type": "uint256"
+					}
+				],
+				"name": "liquidarGarantia",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "prestatario_",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id_",
+						"type": "uint256"
+					}
+				],
+				"name": "obtenerDetalleDePrestamo",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "prestatario",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "monto",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "plazo",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "tiempoSolicitud",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "tiempoLimite",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "aprobado",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "reembolsado",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "liquidado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Banco.Prestamo",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "prestatario_",
+						"type": "address"
+					}
+				],
+				"name": "obtenerPrestamosPorPrestatario",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "id_",
+						"type": "uint256"
+					}
+				],
+				"name": "reembolsarPrestamo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "socioPrincipal",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "monto_",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "plazo_",
+						"type": "uint256"
+					}
+				],
+				"name": "solicitarPrestamo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Prueva VS Code/proyecto-final-daniel-salinas/contract/banco-prestamo.sol": "Banco"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Prueva VS Code/proyecto-final-daniel-salinas/contract/banco-prestamo.sol": {
+			"keccak256": "0xf148130f7b02ee9c0b36ca74feaff2723eaf0f61e3c71c8824375f5aee99eb5d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d9563edf8a31312bb352c014a999c1804c5318c862ee9afcb0c524aa2b4eab7c",
+				"dweb:/ipfs/QmaHLwudu7rdPYeZYsPVV1Pdp8YN424pBz95kcRzNL34ho"
+			]
+		}
+	},
+	"version": 1
+}
